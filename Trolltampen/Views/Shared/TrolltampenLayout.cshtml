@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trolltapmen</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="~/Content/Site.css" rel="stylesheet">
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.0/jquery.validate.unobtrusive.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/Scripts/TrolltampenScript.js"></script>
+    <!-- SB Admin Scripts - Include with every page -->
+    
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/">Trolltampen</a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    @{
+                        string user = WebMatrix.WebData.WebSecurity.IsAuthenticated ? WebMatrix.WebData.WebSecurity.CurrentUserName : string.Empty;
+                    }
+                    @user
+                </li>
+                <li>
+                    <a href=@Url.Action("Logout","Account")><i class="fa fa-sign-out fa-fw"></i> Sign-out</a>
+                </li>
+            </ul>
+            <!-- /.navbar-top-links -->
+
+        </nav>
+        <!-- /.navbar-static-top -->
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="#"><i class="fa fa-file fa-fw"></i> Content <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" id="contentmenu">
+                            <li>
+                                @Html.ActionLink("Articles", "Index", "Articles")
+                                <ul class="nav nav-third-level" id="articlemenu" data-url="@Url.Action("GetCategoryList","Categories")"></ul>
+                            </li>
+                            <li>
+                                @Html.ActionLink("Categories", "Index", "Categories")
+                            </li>
+                        </ul>
+                    </li>
+                   <li>
+                       <a href="@Url.Action("Index", "FrontGallery")"><i class=" fa fa-picture-o fa-fw"></i> Front Gallery <span class="fa arrow"></span></a>
+                  
+                   </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Addresses")"><i class=" fa fa-mail-forward fa-fw"></i> Addresses <span class="fa arrow"></span></a>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-cogs fa-fw"></i> Configuration<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Index","User")">Users</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /#side-menu -->
+            </div>
+            <!-- /.sidebar-collapse -->
+        </nav>
+        <!-- /.navbar-static-side -->
+        @RenderBody()
+    </div>
+    <!-- /#wrapper -->
+
+
+</body>
+
+</html>

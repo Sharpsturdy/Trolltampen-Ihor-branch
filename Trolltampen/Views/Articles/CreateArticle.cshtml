@@ -1,0 +1,74 @@
+﻿@model ArticleModel
+
+@{
+    ViewBag.Title = "Content article";
+    Layout = "~/Views/Shared/TrolltampenLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-8">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        <div class="col-lg-12">
+            <h1 class="page-header">New article</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <form method="post" action="@Url.Action("CreateArticle")" enctype="multipart/form-data" class="formwithcontent">
+                <div class="form-horizontal">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Article.Headline, new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(model => model.Article.Headline, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Article.Headline, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Article.Ingress, new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(model => model.Article.Ingress, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Article.Ingress, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Article.ExtLink, new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(model => model.Article.ExtLink, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Article.ExtLink, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Article.Body, new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.TextAreaFor(model => model.Article.Body, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Article.Body, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Article.MediaTypeID, new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.DropDownListFor(m => m.Article.MediaTypeID, Model.MediaTypes, new { @class = "form-control", id = "mediaselector" })
+                            @Html.ValidationMessageFor(model => model.Article.MediaTypeID, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    @Html.HiddenFor(m => m.Article.CategoryID)
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                    @Html.Partial("AddingMedia")
+                </div>
+            </form>
+        </div>
+        <script>
+            $("#contentmenu").addClass("in");
+            $("#articlemenu").addClass("in");
+            InitiateCreatingContent();
+        </script>
+    </div>
+</div>

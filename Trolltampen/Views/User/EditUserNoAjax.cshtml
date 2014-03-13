@@ -1,0 +1,95 @@
+﻿@model Trolltampen.Models.EditUserModel
+
+@{
+    Layout = "~/Views/Shared/TrolltampenLayout.cshtml";
+}
+
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">@Model.FirstName @Model.LastName</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <p>
+                            <span class="alert-danger">@Model.ErrorMessage</span>
+                        </p>
+                        @Html.LabelFor(model => model.UserName, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+
+                            @Html.ValidationMessageFor(model => model.UserName, null, new { @class = "alert-danger" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.FirstName, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.LastName, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Email, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OldPassword, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.PasswordFor(model => model.OldPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.OldPassword, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NewPassword, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.PasswordFor(model => model.NewPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.NewPassword, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CNewPassword, new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.PasswordFor(model => model.CNewPassword, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CNewPassword, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    @Html.HiddenFor(m => m.ID)
+                    <div class="form-group">
+                        <div class="col-md-offset-4 col-md-8">
+                            <input type="submit" value="Update user" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="row">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+</div>

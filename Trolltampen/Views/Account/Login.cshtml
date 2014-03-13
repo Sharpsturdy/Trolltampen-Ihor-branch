@@ -1,0 +1,79 @@
+﻿@model Trolltampen.Models.LoginModel
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign in</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="~/Content/site.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            <span class="alert-warning">
+                                @Model.LoginFailedResult
+                            </span>
+                        </p>
+                        @using (Html.BeginForm(null, null, new { ReturnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post, new { role = "form" }))
+                        {
+                            <fieldset>
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "User", name = "name", required = "true", autofocus = "true" })
+                                    @Html.ValidationMessageFor(m => m.Name, null, new { @class = "alert-warning" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", name = "password", required = "true", type = "password", value = "" })
+                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "alert-warning" })
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        @Html.CheckBoxFor(m => m.RememberMe)Remember me on this computer
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+                            </fieldset>
+                            <div>
+                                <label>
+                                    <a href="~/Account/Reset">I forgot password...</a>
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Scripts - Include with every page -->
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.0/jquery.validate.unobtrusive.min.js"></script>
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="~/Scripts/TrolltampenScript.js"></script>
+
+</body>
+
+</html>

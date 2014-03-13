@@ -1,0 +1,51 @@
+﻿@model CategoryModel
+@{
+    ViewBag.Title = Model.Category.Name;
+    Layout = "~/Views/Shared/TrolltampenLayout.cshtml";
+}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">@Model.Category.Name</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        <div class="col-lg-8">
+            <form class="formwithcontent" method="post" action="@Url.Action("EditCategory")" enctype="multipart/form-data">
+                <div class="form-horizontal">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Category.Name, new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(model => model.Category.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Category.Name, null, new { @class = "alert-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Category.MediaTypeID, new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Model.Category.MediaType.Type
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Update" class="btn btn-default" />
+                        </div>
+                    </div>
+                    @Html.HiddenFor(m => m.Category.ID)
+                    @Html.HiddenFor(m => m.Category.MediaTypeID)
+                    @Html.HiddenFor(m => m.Category.ContentID)
+                    @Html.Partial("EditMedia", Model.Content)
+                </div>
+            </form>
+        </div>
+        <script>
+            $("#contentmenu").addClass("in");
+            InitiateFormWithContent();
+        </script>
+    </div>
+</div>

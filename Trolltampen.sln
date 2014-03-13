@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trolltampen", "Trolltampen\Trolltampen.csproj", "{7E8DD42C-06F7-4128-BE8C-19681A227A66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trolltampen.Tests", "Trolltampen.Tests\Trolltampen.Tests.csproj", "{17227FD3-E0FC-4B13-8413-2D814B3D91DB}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://andriylakhno.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Trolltampen.Tests\\Trolltampen.Tests.csproj
+		SccProjectName1 = Trolltampen.Tests
+		SccLocalPath1 = Trolltampen.Tests
+		SccProjectUniqueName2 = Trolltampen\\Trolltampen.csproj
+		SccProjectName2 = Trolltampen
+		SccLocalPath2 = Trolltampen
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E8DD42C-06F7-4128-BE8C-19681A227A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E8DD42C-06F7-4128-BE8C-19681A227A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E8DD42C-06F7-4128-BE8C-19681A227A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E8DD42C-06F7-4128-BE8C-19681A227A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17227FD3-E0FC-4B13-8413-2D814B3D91DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17227FD3-E0FC-4B13-8413-2D814B3D91DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17227FD3-E0FC-4B13-8413-2D814B3D91DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17227FD3-E0FC-4B13-8413-2D814B3D91DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

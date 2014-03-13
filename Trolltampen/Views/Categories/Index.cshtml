@@ -1,0 +1,9 @@
+﻿@model List<Category>
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/TrolltampenLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    @Html.Partial("IndexAjax", Model)
+</div>

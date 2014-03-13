@@ -1,0 +1,41 @@
+﻿<div id="photomedia" style="display:none">
+    <div class="form-group" style="">
+        <label class="control-label col-md-4">Select photo file</label>
+        <div class="col-md-6">
+            <input type="file" class="form-control" id="photofile" name="Content.Photo.PhotoFile" />
+            <input type="hidden" id="photofilename" name="Content.Photo.FileName">
+        </div>
+        <div class="form-group">
+            <img id="photoimg" width="180" height="120" style="display:none" />
+        </div>
+        <div class="form-group">
+            <input type="button" class="btn btn-default" id="delphoto" style="display:none" value="Delete picture" />
+        </div>
+    </div>
+</div>
+<div id="photogallery" style="display:none">
+    <div class="form-group">
+        <h4>Photo gallery</h4>
+    </div>
+    <div class="form-group galleryitem" id="galleryitem0">
+        <label class="control-label col-md-4">Add photo to gallery</label>
+        <div class="col-md-6">
+            <input type="file" data-id="0" class="form-control galleryfile" id="photofile0" name="Content.Gallery.PhotoFiles[0].PhotoFile" />
+            <input type="hidden" id="photofilename0" name="Content.Gallery.PhotoFiles[0].FileName">
+        </div>
+        <div class="form-group">
+            <img id="photoimg0" width="180" height="120" style="display:none" />
+        </div>
+        <div class="form-group">
+            <input type="button" class="btn btn-default delgalleryfile" data-id="0" id="delphoto0" style="display:none" value="Delete picture" />
+        </div>
+    </div>
+</div>
+<div id="videolink" style="display:none">
+    <div class="form-group">
+        <h4> URL for embedded video</h4>
+    </div>
+    <div class="col-md-6">
+        <input type="text" class="form-control" id="videolink" name="Content.VideoLink.Link" />
+    </div>
+</div>
