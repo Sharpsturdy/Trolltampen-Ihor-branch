@@ -191,24 +191,52 @@ namespace Trolltampen.Models
         public virtual PhotoGallery PhotoGallery { get; set; }
     }
 
-    public class Address
+    public class Contact
     {
         public int ID { get; set; }
-        [Display(Name="Created")]
+
+        [Display(Name = "Created")]
         public DateTime CreatedOn { get; set; }
+
         [Display(Name = "Email address")]
-        [Required(ErrorMessage = "Please provide your valid email")]
-        [EmailAddress(ErrorMessage = "Please provide your valid email")]
+        [Required(ErrorMessage = "Please provide valid email")]
+        [EmailAddress(ErrorMessage = "Please provide valid email")]
         public string Email { get; set; }
+
         [Display(Name = "First Name")]
-        [Required(ErrorMessage="Please provide your first name")]
+        [Required(ErrorMessage = "Please provide first name")]
         public string FirstName { get; set; }
+
         [Display(Name = "Last Name")]
-        [Required(ErrorMessage = "Please provide your last name")]
+        [Required(ErrorMessage = "Please provide last name")]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Please provide position")]
+        [Display(Name = "Position")]
+        public string Position { get; set; }
+
+        [Display(Name = "Phone number")]
+        [Required(ErrorMessage = "Please provide valid phone number")]
+        [Phone(ErrorMessage = "Please provide valid Phone number")]
+        public string PhoneNum { get; set; }
+
         public string City { get; set; }
+
         public string Sted { get; set; }
+
         public string PostNo { get; set; }
+
+        [Display(Name = "Description")]
+        public string Description { get; set; }
+        [ForeignKey("MediaType")]
+        public int MediaTypeID { get; set; }
+        public int ContentID { get; set; }
+
+        public int OrderNum { get; set; }
+        public bool IsActive { get; set; }
+
+
+        public virtual MediaType MediaType { get; set; }
 
     }
 

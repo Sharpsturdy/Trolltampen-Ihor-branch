@@ -47,6 +47,13 @@ function InitiateCategoryList() {
     InitiateList();
 }
 
+function InitiateContactList(){
+    $("#page-wrapper").on("click", "#createnew", function () {
+        window.location.href = $(this).attr("data-url");
+    });
+    InitiateList();
+}
+
 //Articles list initiating
 function InitiateArticlesList() {
     $("#page-wrapper").on("click", "#createart", function () {
@@ -293,4 +300,7 @@ function InitiateFormWithContent() {
     //        processData: false
     //    });
     //});
+}
+function InitiateCreatingContact() {
+    InitiateMediaPhoto();
 }

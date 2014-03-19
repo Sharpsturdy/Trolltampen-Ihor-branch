@@ -50,7 +50,7 @@ namespace Trolltampen.Controllers
         public ActionResult Logout()
         {
             WebSecurity.Logout();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Home");
         }
 
         [AllowAnonymous]

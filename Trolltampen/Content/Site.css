@@ -309,3 +309,21 @@ table.dataTable thead .sorting:after {
 .show-grid {
     margin: 15px 0;
 }
+
+/* custom css updates */
+
+.top_space {
+    margin-top: 20px;
+}
+
+.img_thumb {
+    height: 120px;
+}
+
+#photofile, .galleryfile {
+    padding: 0;
+}
+
+td {
+    vertical-align: middle !important;
+}

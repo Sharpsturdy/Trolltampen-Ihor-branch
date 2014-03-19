@@ -6,17 +6,20 @@
         string photoname = Model.Photo == null ? null : Model.Photo.FileName;
         <div id="photomedia" style="display:block">
             <div class="form-group" style="">
-                <label class="control-label col-md-4">Select photo file</label>
-                <div class="col-md-6">
-                    <input type="file" class="form-control" id="photofile" name="Content.Photo.PhotoFile" />
-                    @Html.Hidden("Content.Photo.FileName", photoname, new { id = "photofilename" })
+                <div class="col-md-12">
+                    <label class="control-label col-md-4">Select photo file</label>
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" id="photofile" name="Content.Photo.PhotoFile" />
+                        @Html.Hidden("Content.Photo.FileName", photoname, new { id = "photofilename" })
+                    </div>
                 </div>
-                <div class="form-group">
-
-                    <img id="photoimg" width="180" height="120" style="display:block" src="~/Images/@photoname" />
-                </div>
-                <div class="form-group">
-                    <input type="button" class="btn btn-default" id="delphoto" style="display:block" value="Delete picture" />
+                <div class="col-md-offset-4 col-md-6 top_space">
+                    <div class="form-group col-md-6">
+                        <img id="photoimg" class="img_thumb" style="display:block" src="~/Images/@photoname" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="button" class="btn btn-default" id="delphoto" style="display:block" value="Delete picture" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,29 +63,33 @@
             {
                 gItemId = "galleryitem" + index.ToString();
                 <div class="form-group galleryitem" id="@gItemId">
-                    <label class="control-label col-md-4">Add photo to gallery</label>
-                    <div class="col-md-6">
-                        @{
+                    <div class="col-md-12">
+                        <label class="control-label col-md-4">Add photo to gallery</label>
+                        <div class="col-md-6">
+                            @{
                 id = "photofile" + index.ToString();
                 name = "Content.Gallery.PhotoFiles[" + index.ToString() + "].PhotoFile";
-                        }
-                        <input type="file" data-id="@index" class="form-control galleryfile" id="@id" name="@name" />
+                            }
+                            <input type="file" data-id="@index" class="form-control galleryfile" id="@id" name="@name" />
 
-                        @{
+                            @{
                 hid = "photofilename" + index.ToString();
                 hname = "Content.Gallery.PhotoFiles[" + index.ToString() + "].FileName";
-                        }
+                            }
 
-                        @Html.Hidden(hname, item.FileName, new { id = hid })
+                            @Html.Hidden(hname, item.FileName, new { id = hid })
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        @{imgid = "photoimg" + index.ToString();}
-                        <img id="@imgid" width="180" height="120" style="display:block" src="~/Images/@Model.Gallery.PhotoFiles[index].FileName" />
-                    </div>
-                    <div class="form-group">
-                        @{delid = "delphoto" + index.ToString();}
-                        <input type="button" class="btn btn-default delgalleryfile" data-id="@index" id="@delid" style="display:block" value="Delete picture" />
+                    <div class="col-md-offset-4 col-md-6 top_space">
+                        <div class="form-group col-md-6">
+                            @{imgid = "photoimg" + index.ToString();}
+                            <img id="@imgid" class="img_thumb" style="display:block" src="~/Images/@Model.Gallery.PhotoFiles[index].FileName" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            @{delid = "delphoto" + index.ToString();}
+                            <input type="button" class="btn btn-default delgalleryfile" data-id="@index" id="@delid" style="display:block" value="Delete picture" />
+                        </div>
                     </div>
                 </div>
                         index++;

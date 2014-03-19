@@ -23,14 +23,22 @@
                 @using (@Html.BeginForm("AddPhotoToFrontGallery", "FrontGallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
-                    <div class="col-md-6">
-                        <input type="file" class="form-control" id="photofile" name="PhotoFile" />
-                        <input type="hidden" id="photofilename" name="FileName" />
-                        <input type="submit" class="btn btn-success" value="Add photo" />
+                    <div class="col-md-8">
+                        <div class="col-md-6">
+                            <input type="file" class="form-control" id="photofile" name="PhotoFile" />
+                            <input type="hidden" id="photofilename" name="FileName" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-success" value="Add photo" />
+                        </div>
                     </div>
-                    <div id="delphoto" style="display:none">
-                        <img id="photoimg" width="180" style="display:none" />
-                        <input type="button" class="btn btn-default" value="Delete picture" />
+                    <div id="delphoto" class="col-md-4" style="display:none">
+                        <div class="col-md-6">
+                            <img id="photoimg" class="img-responsive" style="display:none" />
+                        </div>
+                        <div class="col-md-6">
+                            <input type="button" class="btn btn-default" value="Delete picture" />
+                        </div>
                     </div>
                 }
                 <script>
@@ -48,13 +56,13 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover" id="categoryTable">
+                        <table class="table table-striped table-bordered table-hover text-center" id="categoryTable">
                             <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Order</th>
-                                    <th>Active</th>
-                                    <th>Delete</th>
+                                    <th class="text-center">Image</th>
+                                    <th class="text-center">Order</th>
+                                    <th class="text-center">Active</th>
+                                    <th class="text-center">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>

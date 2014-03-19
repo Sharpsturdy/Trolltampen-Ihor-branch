@@ -1,20 +1,43 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/TrolltampenLayout.cshtml";
+﻿@{
+    Layout = "~/Views/Shared/FrontLayout.cshtml";
 }
+<div id="inner-wrap" class=' main_page'>
+    <div class='all-page-wrap'>
+        <header id="top" role="banner">
+            <div>
+                <div class="logo col-xs-8"><img class='img-responsive' src="~/Content/img/logo.png"></div>
+                <a class="nav-btn navbar-toggle" id="nav-open-btn" href="#nav">
+                    <span class='menu_text pull-left'>MENY</span>
+                    <div class='icon-set pull-right'>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </a>
+            </div>
+        </header>
 
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Trolltampen</h1>
+        <nav id="nav" role="navigation">
+            @Html.Action("Navigation", "Home")
+        </nav>
+
+        <div class='content'>
+            <h1 class='main_page_slogan'>
+                Flermedialt dokumentasjonsprosjekt<br>
+                om nyere kulturhistorie i Nord-Norge med<br>
+                utgangspunkt i <span class='name'>JACK BERNTSEN</span>.<br>
+            </h1>
         </div>
-        <!-- /.col-lg-12 -->
     </div>
-    <!-- /.row -->
-    <div class="row">
-
-    </div>
-    <!-- /.row -->
 </div>
-
+<!--/#inner-wrap-->
+<div class='footer'>
+    <div class='author pull-left'>
+        designed by <span class='designer'>Hipp Hurra</span> and developed by <span class='developer'>Pricom</span><br>
+        copyright 2014 all rights reserved
+    </div>
+    <div class='soc_icons text-right pull-right'>
+        <a href=""><img src="~/Content/img/fb_ico.png"></a>
+        <a href=""><img src="~/Content/img/tweet_ico.png"></a>
+    </div>
+</div>

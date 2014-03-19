@@ -140,14 +140,27 @@
     <EmbeddedResource Include="Migrations\201403111008280_AddedAddressTable.resx">
       <DependentUpon>201403111008280_AddedAddressTable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403190805581_updateAddressTable.resx">
+      <DependentUpon>201403190805581_updateAddressTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403190814569_RenamedAddressToContact.resx">
+      <DependentUpon>201403190814569_RenamedAddressToContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403190948595_addedOrderNumAndIsActiveToContact.resx">
+      <DependentUpon>201403190948595_addedOrderNumAndIsActiveToContact.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\ISendRecoveryLink.cs" />
     <Compile Include="App_Code\MailService.cs" />
-    <Compile Include="Controllers\AddressesController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CmsController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\FrontGalleryController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PartnersController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Migrations\201402141040204_initial.cs" />
     <Compile Include="Migrations\201402141040204_initial.Designer.cs">
@@ -165,23 +178,45 @@
     <Compile Include="Migrations\201403111008280_AddedAddressTable.Designer.cs">
       <DependentUpon>201403111008280_AddedAddressTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403190805581_updateAddressTable.cs" />
+    <Compile Include="Migrations\201403190805581_updateAddressTable.Designer.cs">
+      <DependentUpon>201403190805581_updateAddressTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403190814569_RenamedAddressToContact.cs" />
+    <Compile Include="Migrations\201403190814569_RenamedAddressToContact.Designer.cs">
+      <DependentUpon>201403190814569_RenamedAddressToContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403190948595_addedOrderNumAndIsActiveToContact.cs" />
+    <Compile Include="Migrations\201403190948595_addedOrderNumAndIsActiveToContact.Designer.cs">
+      <DependentUpon>201403190948595_addedOrderNumAndIsActiveToContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ArticleModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\ContactsFrontModel.cs" />
     <Compile Include="Models\ContentModel.cs" />
     <Compile Include="Models\FrontGalleryModel.cs" />
     <Compile Include="Models\GetArticlesModel.cs" />
     <Compile Include="Models\MediaModels.cs" />
+    <Compile Include="Models\NewsFrontModel.cs" />
     <Compile Include="Repositories\ArticleRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\ContactsRepository.cs" />
     <Compile Include="Repositories\ContentRepositoryBase.cs" />
+    <Compile Include="Repositories\FrontRepositoryBase.cs" />
     <Compile Include="Repositories\GalleryRepository.cs" />
     <Compile Include="Repositories\IArticleRepository.cs" />
     <Compile Include="Repositories\ICategoryRepository.cs" />
+    <Compile Include="Repositories\IContactsRepository.cs" />
     <Compile Include="Repositories\IGalleryRepository.cs" />
     <Compile Include="Repositories\IMediaManager.cs" />
+    <Compile Include="Repositories\IPartnersRepository.cs" />
+    <Compile Include="Repositories\INewsRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\MediaManager.cs" />
+    <Compile Include="Repositories\PartnersRepository.cs" />
+    <Compile Include="Repositories\NewsRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -207,9 +242,19 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom_style.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\img\bg_img.png" />
+    <Content Include="Content\img\close-btn.png" />
+    <Content Include="Content\img\close-btn.svg" />
+    <Content Include="Content\img\fb_ico.png" />
+    <Content Include="Content\img\grey_img.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\tweet_ico.png" />
+    <Content Include="Content\media_q.css" />
+    <Content Include="Content\off-canwas.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -256,7 +301,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr.js" />
     <Content Include="Scripts\plugins\dataTables\dataTables.bootstrap.js" />
     <Content Include="Scripts\plugins\dataTables\jquery.dataTables.js" />
     <Content Include="Scripts\plugins\flot\excanvas.min.js" />
@@ -284,7 +331,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\MailLink.cshtml" />
     <Content Include="Views\Account\Reset.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cms\Index.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
     <Content Include="Views\User\EditUserNoAjax.cshtml" />
@@ -303,11 +350,17 @@
     <Content Include="Views\Shared\AddingMedia.cshtml" />
     <Content Include="Views\Shared\EditMedia.cshtml" />
     <Content Include="Views\FrontGallery\Index.cshtml" />
-    <Content Include="Views\Addresses\Create.cshtml" />
-    <Content Include="Views\Addresses\Delete.cshtml" />
-    <Content Include="Views\Addresses\Details.cshtml" />
-    <Content Include="Views\Addresses\Edit.cshtml" />
-    <Content Include="Views\Addresses\Index.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Contacts\Delete.cshtml" />
+    <Content Include="Views\Contacts\Details.cshtml" />
+    <Content Include="Views\Contacts\Edit.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Navigation.cshtml" />
+    <Content Include="Views\Shared\FrontLayout.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Partners\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

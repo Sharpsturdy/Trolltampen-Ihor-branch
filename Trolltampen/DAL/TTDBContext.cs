@@ -23,7 +23,7 @@ namespace Trolltampen.DAL
         public DbSet<VideoLink> VideoLinks { get; set; }
         public DbSet<PhotoGallery> PhotoGalleries { get; set; }
         public DbSet<GalleryPhoto> GalleryPhotos { get; set; }
-        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Trolltampen.Controllers
 {
-    [Authorize]
+    
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -14,5 +14,9 @@ namespace Trolltampen.Controllers
             return View();
         }
 
+        public ActionResult Navigation()
+        {
+            return View();
+        }
     }
 }
