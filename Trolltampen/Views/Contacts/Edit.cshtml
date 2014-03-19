@@ -1,0 +1,97 @@
+﻿@model Trolltampen.Models.ContactModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/TrolltampenLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">@Model.Contact.FirstName @Model.Contact.LastName</h1>
+        </div>
+    </div>
+    @using (Html.BeginForm("Edit", "Contacts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Address</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.FirstName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.FirstName)
+                    @Html.ValidationMessageFor(model => model.Contact.FirstName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.LastName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.LastName)
+                    @Html.ValidationMessageFor(model => model.Contact.LastName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.Position, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.Position)
+                    @Html.ValidationMessageFor(model => model.Contact.Position)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.Email, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.Email)
+                    @Html.ValidationMessageFor(model => model.Contact.Email)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.PhoneNum, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.PhoneNum)
+                    @Html.ValidationMessageFor(model => model.Contact.PhoneNum)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.Description, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Contact.Description)
+                    @Html.ValidationMessageFor(model => model.Contact.Description)
+                </div>
+            </div>
+
+            @{string photoname = Model.Content.Photo == null ? Url.Content("~/Content/img/grey_img.png") :Url.Content("~/Images/") + Model.Content.Photo.FileName;    }
+            <div id="photomedia">
+                <div class="form-group" style="">
+                    <label class="control-label col-md-4">Select photo file</label>
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" id="photofile" name="Content.Photo.PhotoFile" />
+                        @Html.Hidden("Content.Photo.FileName", photoname, new { id = "photofilename" })
+                    </div>
+                    <div class="form-group">
+
+                        <img id="photoimg" width="180" height="120" style="display:block" src="@photoname" />
+                    </div>
+                    <div class="form-group">
+                        <input type="button" class="btn btn-default" id="delphoto" style="display:block" value="Delete picture" />
+                    </div>
+                </div>
+            </div>
+            <script>
+                InitiateEditPhoto();
+            </script>
+            @Html.HiddenFor(m=>m.Contact.ID)
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>

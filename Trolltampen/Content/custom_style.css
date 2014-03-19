@@ -1,0 +1,64 @@
+html, body {height: 100%;}
+
+body {background: url(img/bg_img.png) no-repeat center top; background-size: cover; font-family: 'Lato', sans-serif !important; color: #494949 !important;}
+header {height: 75px;}
+
+b, strong {font-weight: 900;}
+
+#outer-wrap {
+	min-height: 100%  !important;
+	height: auto !important;
+}
+
+#inner-wrap {height: 100%;}
+
+.all-page-wrap {padding: 40px; height: auto !important; min-height: 100% !important; position: relative;}
+
+/* MENU button*/
+
+#top .nav-btn {
+    margin: 0;
+    right: 0 !important;
+    top: 0 !important;
+}
+
+
+.navbar-toggle, .navbar-toggle:active, 
+.navbar-toggle:focus, .navbar-toggle:hover {
+	font-weight: bold; 
+	color: #fff;
+	outline: none;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.menu_text {display: inline-block;}
+.icon-set {margin-left: 10px; margin-top: 4px;}
+.navbar-toggle .icon-bar {background-color: #fff; height: 3px;}
+
+.csstransforms3d.csstransitions.js-ready #nav {height: 2500px; z-index: 999999; overflow: hidden;}
+
+/* Main Page text */
+.logo {padding-left: 0;}
+.main_page_slogan {color: #fff; text-align: center; font-size: 40px; text-transform: uppercase; margin-top: 15%;}
+.main_page_slogan .name {font-weight: 900;}
+
+.footer {position: absolute; bottom: 0; padding: 0 40px 40px 40px; width: 100%; z-index: 9; overflow: hidden;}
+.footer div {display: inline-block;}
+.soc_icons a:not(:last-child) {padding-right: 20px;}
+.soc_icons img {width: 40px; height: 40px;}
+.js-nav .soc_icons, .js-nav .author {display: none;}
+.author {text-transform: uppercase; color: #fff; font-size: 10px; padding-top: 12px;}
+.designer, .developer {font-weight: 900;}
+
+/* Not main page */
+
+.not_main_page {background-color: #fff; margin-top: 150px; padding: 20px 0 100px 0;}
+.not_main_page .container {max-width: 1170px; padding: 0 40px;}
+.not_main_page label {font-size: 17px; color: #999; margin: 0; padding: 0; line-height: 17px; padding-left: 15px; text-transform: uppercase;}
+
+.contact_box {margin-top: 40px; }
+.contact_box h5 {font-weight: bold; margin-top: 29px;}
+.contact-box-section-spacing {margin-top: 25px;}
+.contact_box .img-responsive {width: 100%;}
+.contact_box h3 {margin-top: 30px; font-size: 25px; font-weight: bold; line-height: 25px;}

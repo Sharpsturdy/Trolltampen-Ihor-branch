@@ -1,0 +1,53 @@
+﻿@model ContactsFrontModel
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/FrontLayout.cshtml";
+}
+
+<div id="inner-wrap" class=' main_page'>
+    <div class='all-page-wrap'>
+        <header id="top" role="banner">
+            <div>
+                <div class="logo col-xs-8"><img class='img-responsive' src="~/Content/img/logo.png"></div>
+                <a class="nav-btn navbar-toggle" id="nav-open-btn" href="#nav">
+                    <span class='menu_text pull-left'>MENY</span>
+                    <div class='icon-set pull-right'>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                </a>
+            </div>
+        </header>
+
+        <nav id="nav" role="navigation">
+            @Html.Action("Navigation", "Home")
+        </nav>
+    </div>
+    <div class='content'>
+        <div class='not_main_page'>
+            <div class='container'>
+                <label>KONTAKT / OM OSS</label>
+                <div class='rows'>
+                    @{int index=0;}
+                    @foreach (var item in Model.Contacts)
+                    {
+                        <div class='col-xxs-12 col-xs-6 col-md-3 contact_box'>
+                            <img class='center-block img-responsive' src="@Model.Photos[item.ID]">
+                            <h5>@item.FirstName @item.LastName</h5>
+                            <div>@item.Position</div>
+                            <div class='contact-box-section-spacing'>TLF.: @Html.DisplayFor(m=>m.Contacts[index].PhoneNum)</div>
+                            <div>E-post: @Html.DisplayFor(m=>m.Contacts[index].Email)</div>
+                            <p class='contact-box-section-spacing'>
+                                @item.Description
+                            </p>
+                        </div>
+                        index++;
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

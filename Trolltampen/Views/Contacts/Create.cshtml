@@ -1,0 +1,92 @@
+﻿@model Trolltampen.Models.ContactModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/TrolltampenLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add contact</h1>
+        </div>
+    </div>
+    @using (Html.BeginForm("Create", "Contacts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Address</h4>
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.FirstName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.FirstName)
+                    @Html.ValidationMessageFor(model => model.Contact.FirstName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.LastName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.LastName)
+                    @Html.ValidationMessageFor(model => model.Contact.LastName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.Position, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.Position)
+                    @Html.ValidationMessageFor(model => model.Contact.Position)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.Email, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.Email)
+                    @Html.ValidationMessageFor(model => model.Contact.Email)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.PhoneNum, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Contact.PhoneNum)
+                    @Html.ValidationMessageFor(model => model.Contact.PhoneNum)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Contact.Description, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Contact.Description)
+                    @Html.ValidationMessageFor(model => model.Contact.Description)
+                </div>
+            </div>
+            @Html.HiddenFor(m => m.Contact.MediaTypeID)
+            <div id="photomedia" class="form-group" style="">
+                <label class="control-label col-md-2">Select photo file</label>
+                <div class="col-md-10">
+                    <input type="file" class="form-control" id="photofile" name="Content.Photo.PhotoFile" />
+                    <input type="hidden" id="photofilename" name="Content.Photo.FileName">
+                </div>
+                <div class="form-group">
+                    <img id="photoimg" width="180" height="120" style="display:none" />
+                </div>
+                <div class="form-group">
+                    <input type="button" class="btn btn-default" id="delphoto" style="display:none" value="Delete picture" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+<script>
+    InitiateCreatingContact();
+</script>
